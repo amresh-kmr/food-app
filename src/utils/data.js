@@ -1,0 +1,111 @@
+let data = [
+  {
+    id: 1,
+    name: "Chinese Executive Combo",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/906/55fa184a8eb6d5cbacb86bb4c1d05906.jpg",
+    category: "veg",
+    deliveryTime: "30",
+    price: 260,
+    rating: "3.5",
+    discount: "20",
+    qty: 0,
+  },
+  {
+    id: 2,
+    name: "Veg Steamed Momos",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/fb3/0f7efbd8f6bfa5cdd0ea0cbf8ca33fb3.jpg",
+    category: "veg",
+    deliveryTime: "30",
+    price: 120,
+    rating: "1.5",
+    discount: "10",
+    qty: 0,
+  },
+  {
+    id: 3,
+    name: "Paneer Manchurian",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/005/bb990a4574f8e7634ba7317ed4f38005.jpg",
+    category: "veg",
+    deliveryTime: "30",
+    price: 200,
+    rating: "4.0",
+    discount: "35",
+    qty: 0,
+  },
+  {
+    id: 4,
+    name: "Fried Momos",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/906/55fa184a8eb6d5cbacb86bb4c1d05906.jpg",
+    category: "non-veg",
+    deliveryTime: "30",
+    price: 200,
+    rating: "1.7",
+    discount: "30",
+    qty: 0,
+  },
+  {
+    id: 5,
+    name: "Fried Chips",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/667/c16db27456c72bb652c899b0f085f667.jpg",
+    category: "veg",
+    deliveryTime: "30",
+    price: 300,
+    rating: "3.8",
+    discount: "55",
+    qty: 0,
+  },
+  {
+    id: 6,
+    name: "French Fries",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/005/bb990a4574f8e7634ba7317ed4f38005.jpg",
+    category: "non-veg",
+    deliveryTime: "30",
+    price: 350,
+    rating: "5.0",
+    discount: "25",
+    qty: 0,
+  },
+  {
+    id: 7,
+    name: "Fried Rice",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/667/c16db27456c72bb652c899b0f085f667.jpg",
+    category: "veg",
+    deliveryTime: "30",
+    price: 125,
+    rating: "0.5",
+    discount: "35",
+    qty: 0,
+  },
+  {
+    id: 8,
+    name: "Fried Momos",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/fb3/0f7efbd8f6bfa5cdd0ea0cbf8ca33fb3.jpg",
+    category: "non-veg",
+    deliveryTime: "30",
+    price: 200,
+    rating: "1.7",
+    discount: "30",
+    qty: 0,
+  },
+  {
+    id: 9,
+    name: "Fried Momos",
+    image:
+      "https://b.zmtcdn.com/data/dish_photos/667/c16db27456c72bb652c899b0f085f667.jpg",
+    category: "veg",
+    deliveryTime: "30",
+    price: 200,
+    rating: "1.7",
+    discount: "30",
+    qty: 0,
+  },
+];
+export default data;
