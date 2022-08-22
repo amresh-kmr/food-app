@@ -15,12 +15,14 @@ export default function MyDrawer({ drawerOpen, setDrawerOpen }) {
       );
     }
   }
+
   useEffect(() => {
     let total = cart.reduce((acc, item) => {
       return acc + item.price * item.qty;
     }, 0);
     setSubTotal(total);
   }, [cart]);
+
   return (
     <div>
       <Drawer

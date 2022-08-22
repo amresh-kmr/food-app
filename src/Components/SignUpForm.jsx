@@ -4,23 +4,18 @@ import {
   DialogActions,
   DialogContent,
   TextField,
+  Typography,
 } from "@mui/material";
-import { Field, Form, Formik, ErrorMessage } from "formik";
+import { Form, Formik, ErrorMessage } from "formik";
 import { useState } from "react";
 import { CartState } from "../App";
+import address from "../utils/address";
 function getObject({ email, firstName, lastName, mobileNo, address, pincode }) {
   return { email, firstName, lastName, mobileNo, address, pincode };
 }
-let address = {
-  kormangala: 560064,
-  btm: 560068,
-  anjananagar: 560091,
-  bansankhri: 560075,
-  madiwala: 760064,
-  patna: 580064,
-};
 let timer;
-export default function SignUpForm({ handleClose }) {
+
+export default function SignUpForm({ handleClose, setValue }) {
   const { setUsers, users, setUser, id, setId } = CartState();
   const [err, setErr] = useState("");
 
@@ -67,35 +62,30 @@ export default function SignUpForm({ handleClose }) {
           initialValues={{
             email: "",
             password: "",
+            // eslint-disable-next-line
             ["confirm-password"]: "",
             firstName: "",
             lastName: "",
             mobileNo: null,
+            pincode: "",
           }}
           validate={(values) => {
             const errors = {};
             if (!values.email) {
               errors.email = "Please Enter Email";
-            }
-            if (!values.password) {
+            } else if (!values.password) {
               errors.password = "Please Enter Password";
-            }
-            if (!values.address) {
+            } else if (!values.address) {
               errors.password = "Please Enter Address";
-            }
-            if (!values.address) {
+            } else if (!values.address) {
               errors.address = "Please Enter Address";
-            }
-            if (!values.firstName) {
+            } else if (!values.firstName) {
               errors.firstName = "Please Enter First Name";
-            }
-            if (!values.lastName) {
+            } else if (!values.lastName) {
               errors.lastName = "Please Enter Last Name";
-            }
-            if (!values["confirm-password"]) {
+            } else if (!values["confirm-password"]) {
               errors["confirm-password"] = "Please Enter Password Here";
-            }
-            if (
+            } else if (
               values["confirm-password"] &&
               values["confirm-password"] !== values.password
             ) {
@@ -120,7 +110,6 @@ export default function SignUpForm({ handleClose }) {
               />
               <ErrorMessage name="email" component="div" className="error" />
               <TextField
-                autoFocus
                 margin="dense"
                 id="lastName"
                 label="Enter Last Name "
@@ -132,7 +121,6 @@ export default function SignUpForm({ handleClose }) {
               />
               <ErrorMessage name="email" component="div" className="error" />
               <TextField
-                autoFocus
                 margin="dense"
                 id="mobileNo"
                 label="Enter Mobile Number"
@@ -144,7 +132,6 @@ export default function SignUpForm({ handleClose }) {
               />
               <ErrorMessage name="email" component="div" className="error" />
               <TextField
-                autoFocus
                 margin="dense"
                 id="address"
                 label="Enter Address"
@@ -161,16 +148,15 @@ export default function SignUpForm({ handleClose }) {
                     let pin =
                       address[
                         Object.keys(address).find(
-                          (item) => item === e.target.value
+                          (item) => item === e.target.value.trim().toLowerCase()
                         )
                       ];
-                    setFieldValue("pincode", pin);
+                    setFieldValue("pincode", pin ? pin : "");
                   }, 500);
                 }}
               />
               <ErrorMessage name="address" component="div" className="error" />
               <TextField
-                autoFocus
                 margin="dense"
                 id="pincode"
                 label={values.pincode ? "" : "Enter Pincode"}
@@ -183,7 +169,6 @@ export default function SignUpForm({ handleClose }) {
               />
               <ErrorMessage name="pincode" component="div" className="error" />
               <TextField
-                autoFocus
                 margin="dense"
                 id="name"
                 label="Enter Email Here"
@@ -231,6 +216,12 @@ export default function SignUpForm({ handleClose }) {
                   {isSubmitting ? <CircularProgress size={20} /> : "Sign Up"}
                 </Button>
               </DialogActions>
+              <Typography textAlign="center">
+                Already have an account?{" "}
+                <Button onClick={() => setValue((prev) => 0)}>
+                  login here
+                </Button>
+              </Typography>
             </Form>
           )}
         </Formik>

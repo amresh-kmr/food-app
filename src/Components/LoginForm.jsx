@@ -1,9 +1,15 @@
-import { Button, DialogActions, DialogContent, TextField } from "@mui/material";
-import { Field, Form, Formik, ErrorMessage } from "formik";
+import {
+  Button,
+  DialogActions,
+  DialogContent,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { Form, Formik, ErrorMessage } from "formik";
 import { useState } from "react";
 import { CartState } from "../App";
 
-export default function LoginForm({ handleClose }) {
+export default function LoginForm({ handleClose, setValue }) {
   const { users, setUser } = CartState();
   const [err, setErr] = useState("");
 
@@ -71,6 +77,12 @@ export default function LoginForm({ handleClose }) {
                   Login
                 </Button>
               </DialogActions>
+              <Typography textAlign="center">
+                Don't have an account?{" "}
+                <Button onClick={() => setValue((prev) => 1)}>
+                  SignUp here
+                </Button>
+              </Typography>
             </Form>
           )}
         </Formik>

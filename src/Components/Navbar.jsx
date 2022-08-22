@@ -7,10 +7,11 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Login from "./Login";
 import { Badge } from "@mui/material";
-// import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartState } from "../App";
 import MyDrawer from "./MyDrawer";
+import LunchDiningIcon from "@mui/icons-material/LunchDining";
+
 export default function Navbar() {
   const { cart, user, setUser } = CartState();
   const [open, setOpen] = React.useState(false);
@@ -24,7 +25,7 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: "mediumseagreen" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -33,7 +34,7 @@ export default function Navbar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            {/* <MenuIcon /> */}
+            <LunchDiningIcon />
           </IconButton>
           <Typography
             variant="h6"
@@ -62,12 +63,18 @@ export default function Navbar() {
               </Button>
             </>
           )}
-          <Login open={open} setOpen={setOpen} value={value} />
+          <Login
+            open={open}
+            setOpen={setOpen}
+            value={value}
+            setValue={setValue}
+          />
           <Badge badgeContent={cart.length} color="secondary">
             <IconButton
               onClick={() => {
                 setDrawerOpen((prev) => !prev);
               }}
+              sx={{ padding: "4px" }}
             >
               <ShoppingCartIcon color="action" />
             </IconButton>

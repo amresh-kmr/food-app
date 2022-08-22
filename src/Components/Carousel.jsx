@@ -1,4 +1,4 @@
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -14,6 +14,7 @@ export default function Carousel() {
     return () => {
       handleClearTimer();
     };
+    // eslint-disable-next-line
   }, []);
   function interval() {
     timerRef.current = setInterval(() => {
@@ -31,17 +32,17 @@ export default function Carousel() {
     clearInterval(timerRef.current);
   }
   function handleSetTimer() {
-    // interval();
+    interval();
   }
   return (
     <Box
       display="flex"
       justifyContent="center"
       sx={{
-        height: "240px",
+        height: "325px",
         mt: "20px",
         width: "100vw",
-        mb: "40px",
+        mb: "50px",
       }}
     >
       <IconButton
@@ -58,7 +59,6 @@ export default function Carousel() {
           display={index === disp ? "flex" : "none"}
           justifyContent="center"
           alignItems="center"
-          // backgroundColor={index % 2 === 0 ? "green" : "red"}
           color="white"
         >
           <MyImageList itemData={item} />
